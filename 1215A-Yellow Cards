@@ -1,0 +1,51 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n,m,p1,p2,k;
+    cin>>n>>m>>p1>>p2>>k;
+    ll s=((p1-1)*n)+((p2-1)*m);
+    ll max=0,min=0;
+    if(s>=k)
+    min=0;
+    else
+    min=k-s;
+    ll a=p1>p2?p2:p1;
+    char c;
+    if(a==p1)
+    c='n';
+    else
+    c='m';
+    s=k/a;
+    if(c=='n')
+    {
+        if(s>n){
+        ll s1=k-(p1*n);
+        s1=s1/p2;
+        if(s1>m)
+        max=max+m;
+        else
+        max=max+s1;
+        max=max+n;
+        }
+        else
+        max=max+s;
+    }
+    else
+    {
+        if(s>m){
+        ll s2=k-(p2*m);
+        s2=s2/p1;
+        if(s2>n)
+        max=max+n;
+        else
+        max=max+s2;
+        max=max+m;
+        }
+        else
+        max=max+s;
+    }
+    cout<<min<<" "<<max<<endl;
+    return(0);
+}
