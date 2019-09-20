@@ -1,0 +1,36 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll q;
+    cin>>q;
+    while(q--)
+    {
+        ll c,m,x;
+        cin>>c>>m>>x;
+        ll c1,m1,x1;
+        c1=c;
+        m1=m;
+        x1=x;
+        ll n=c+m+x;
+        ll high=n/3;
+        ll low=0;
+        ll mid;
+        while(low<=high)
+        {
+            mid=low+(high-low)/2;
+            c=c-mid;
+            m=m-mid;
+            if(c>=0&&m>=0&&(c+m+x)>=mid)
+            low=mid+1;
+            else
+            high=mid-1;
+            c=c1;
+            m=m1;
+            x=x1;
+        }
+        cout<<high<<endl;
+    }
+    return(0);
+}
