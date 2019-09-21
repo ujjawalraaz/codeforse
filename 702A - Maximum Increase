@@ -1,0 +1,32 @@
+#include<iostream>
+#include<vector>
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+ll max(ll a,ll b)
+{
+    if(a>b)
+    return(a);
+    else
+    return(b);
+}
+int main()
+{
+    ll n;
+    cin>>n;
+    ll arr[n];
+    for(int i=0;i<n;i++)
+    cin>>arr[i];
+    ll max1=1;
+    ll count=1;
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]>arr[i-1])
+        count++;
+        else
+        count=1;
+        max1=max(max1,count);
+    }
+    cout<<max1<<endl;
+    return(0);
+}
