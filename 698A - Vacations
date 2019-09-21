@@ -1,0 +1,70 @@
+/****************************************************
+    
+      created by ujjawal_singh on dated 22/09/2019
+     
+***************************************************** */
+ 
+#include<iostream>
+#define ll long long int
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define ip(n) cin>>n
+#define pr1(n) cout<<n
+#define pr2(a,b) cout<<a<<" "<<b
+#define _ cout<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+int main()
+{
+   fast;
+   ll n;
+   ip(n);
+   ll arr[n];
+   int i=0;
+   rep(i,n)
+   ip(arr[i]);
+   ll c=0;
+   i=0;
+   // j=2 indicates do jym and j=1 indicates do coding...j=0 indicates rest 
+   ll j=0;
+   rep(i,n)
+   {
+       switch(arr[i])
+       {
+           case 0:
+           c++;
+           j=0;
+           break;
+           case 1:
+           if(j==0||j==2)
+           j=1;
+           else
+           {
+               c++;
+               j=0;
+           }
+           break;
+           case 2:
+           if(j==0||j==1)
+           j=2;
+           else
+           {
+               c++;
+               j=0;
+           }
+           break;
+           case 3:
+           if(j==0)
+           j=0;
+           else
+           {
+               if(j==1)
+               j=2;
+               else
+               j=1;
+           }
+       }
+   }
+   pr1(c);
+   return(0);
+}
