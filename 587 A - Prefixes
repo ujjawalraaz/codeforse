@@ -1,0 +1,27 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n;
+    cin>>n;
+    string str;
+    cin>>str;
+    ll count=0;
+    for(int i=1;i<n;i=i+2)
+    {
+        char c=str[i];
+        char c1=str[i-1];
+        if(c==c1)
+        {
+            count++;
+            if(c=='a')
+            str[i]='b';
+            else
+            str[i]='a';
+        }
+    }
+    cout<<count<<endl;
+    cout<<str<<endl;
+    return(0);
+}
