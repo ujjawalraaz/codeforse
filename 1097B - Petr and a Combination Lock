@@ -1,0 +1,64 @@
+ 
+/****************************************************
+    
+      created by ujjawal_singh on dated 22/09/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i]);
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+ 
+bool fun(ll a,ll index,ll n,ll arr[])
+{
+    if(index==n-1)
+    {
+        if(a==0)
+        return(true);
+        else
+        return(false);
+    }
+    index++;
+    ll k=a+arr[index];
+    if(fun(k%360,index,n,arr))
+    return(true);
+    k=a-arr[index];
+    if(k<0)
+    k=360+k;
+    if(fun(k%360,index,n,arr))
+    return(true);
+    return(false);
+}
+ 
+int main()
+{
+    fast;
+    ipn();
+    ll a=arr[0];
+    ll  index=0;
+    if(fun(a,index,n,arr))
+    pr1("YES");
+    else
+    {
+        index=0;
+        a=360-arr[0];
+        if(fun(a,index,n,arr))
+        pr1("YES");
+        else
+        pr1("NO");
+    }
+    
+    return(0);
+}
