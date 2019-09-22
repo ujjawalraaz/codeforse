@@ -1,0 +1,55 @@
+ 
+/****************************************************
+    
+      created by ujjawal_singh on dated 22/09/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i]);
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+int main()
+{
+  fast;
+  build();
+  ipn();
+  ll arr1[n];
+  rep(i,n)
+  arr1[i]=arr[i];
+  sort(arr1,arr1+n);
+  fo(i,1,n)
+  {
+      arr[i]=arr[i]+arr[i-1];
+      arr1[i]=arr1[i]+arr1[i-1];
+  }
+  ll t;
+  ip(t);
+  rep(i,t)
+  {
+      ll ty,a,b;
+      ip(ty);ip(a);ip(b);
+      if(a==1){
+      if(ty==1&&a==1)
+      pr1(arr[b-1]);
+      if(ty==2&&a==1)
+      pr1(arr1[b-1]);}
+      else{
+      if(ty==1)
+      pr1(arr[b-1]-arr[a-2]);
+      else
+      pr1(arr1[b-1]-arr1[a-2]);}
+  }
+  return(0);
+}
