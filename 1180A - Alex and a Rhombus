@@ -1,0 +1,33 @@
+ 
+/****************************************************
+    
+      created by ujjawal_singh on dated 22/09/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll dp[101];
+void build()
+{
+    dp[1]=1;
+    fo(i,2,101)
+    dp[i]=dp[i-1]+(4*(i-1));
+}
+int main()
+{
+  fast;
+  build();
+  ll n;
+  ip(n);
+  pr1(dp[n]);
+  return(0);
+}
