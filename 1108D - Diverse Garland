@@ -1,0 +1,88 @@
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 23/09/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+ 
+ 
+int main()
+{
+  ll n;
+  ip(n);
+  string str;
+  ip(str);
+  ll count=0;
+  fo(i,1,n)
+  {
+      if(str[i]!=str[i-1])
+      {}
+      else
+      {
+          count++;
+          char c1;
+          char c=str[i];
+          if(i<n-1)
+          c1=str[i+1];
+          else
+          {
+              switch(c)
+              {
+                  case 'R':
+                  str[i]='B';
+                  break;
+                  case 'G':
+                  str[i]='B';
+                  break;
+                  case 'B':
+                  str[i]='R';
+                  break;
+              }
+              continue;
+          }
+          switch(c)
+          {
+              case 'R':
+              if(c1=='G')
+              str[i]='B';
+              else
+              str[i]='G';
+              break;
+              
+              case 'G':
+              if(c1=='B')
+              str[i]='R';
+              else
+              str[i]='B';
+              break;
+              
+              case 'B':
+              if(c1=='R')
+              str[i]='G';
+              else
+              str[i]='R';
+              
+          }
+      }
+  }
+  pr1(count);
+  pr1(str);
+  return(0);
+}
