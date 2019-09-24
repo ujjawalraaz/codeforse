@@ -1,0 +1,71 @@
+ 
+/****************************************************
+             code from scratch...
+      coded by ujjawal_singh on dated 24/09/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+ 
+ 
+int main()
+{
+    ll n,k;
+    ip(n);ip(k);
+    string str;
+    ip(str);
+    if(n==1)
+    {
+        if(k>0)
+        str[0]='0';
+        pr1(str);
+        return(0);
+    }
+    
+    if(k>0)
+    {
+        if(str[0]!='1')
+        {
+            k--;
+            str[0]='1';
+        }
+    }
+    fo(i,1,n)
+    {
+        if(k>0)
+        {
+            if(str[i]!='0')
+            {
+                k--;
+                str[i]='0';
+            }
+        }
+        else
+        break;
+    }
+/*    if(k>0)
+    {
+        if(str[n-1]>'1')
+        {
+            k--;
+            str[n-1]='1';
+        }
+    }*/
+    pr1(str);
+    return(0);
+}
