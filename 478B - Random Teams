@@ -1,0 +1,42 @@
+
+/****************************************************
+             code from scratch...
+      coded by ujjawal_singh on dated 18/10/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+#define mem(arr,i) memset(arr,i,sizeof(arr))
+using namespace std;
+ll M=1000000007;
+ll n;
+void build()
+{
+    
+}
+
+int main()
+{
+   fast;
+   ll n,m;
+   ip(n);ip(m);
+   ll n1=n-(m-1);
+   ll max=(n1*(n1-1))/2;
+   ll n2=n/m;
+   ll n4=m-(n%m);
+   ll min=((n2*(n2-1))/2)*n4;
+   ll n3=n%m;
+   n2++;
+   min=min+((n2*(n2-1))/2)*n3;
+   pr2(min,max);
+   return(0);
+}
