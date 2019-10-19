@@ -1,0 +1,47 @@
+
+/****************************************************
+             code from scratch...
+      coded by ujjawal_singh on dated 18/10/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+#define mem(arr,i) memset(arr,i,sizeof(arr))
+using namespace std;
+ll M=1000000007;
+ll n;
+void build()
+{
+    
+}
+
+int main()
+{
+   fast;
+   string str;
+   getline(cin,str);
+   ll arr[30]={0};
+   rep(i,str.size())
+   {
+      if(str[i]>=97&&str[i]<=122)
+      arr[str[i]-97]=1;
+ //  ll h=str[i];
+  // cout<<h<<" ";
+   }
+ //  pr1(str);
+   ll sum=0;
+   rep(i,30)
+  // cout<<arr[i]<<" ";
+   sum=sum+arr[i];
+   pr1(sum);
+   return(0);
+}
