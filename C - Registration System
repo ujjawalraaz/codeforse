@@ -1,0 +1,50 @@
+/****************************************************
+             code from scratch...
+      coded by ujjawal_singh on dated 20/10/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+ 
+ 
+int main()
+{
+    fast;
+    ll n;
+    ip(n);
+    string str;
+    unordered_map<string,int> umap;
+    rep(i,n)
+    {
+          ip(str);
+          if(umap.find(str)==umap.end())
+          {
+                pr1("OK");
+                umap[str]=1;
+          }
+          else
+          {
+                int c=umap[str];
+                umap[str]++;
+                str=str+to_string(c);
+                umap[str]=1;
+                pr1(str);
+          }
+    }
+    return(0);
+}
