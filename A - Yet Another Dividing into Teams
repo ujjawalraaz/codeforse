@@ -1,0 +1,51 @@
+/****************************************************
+             code from scratch...
+      coded by ujjawal_singh on dated 23/10/2019
+     
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rep(i, n) fo(i, 0, n)
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define fast ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+ 
+ 
+int main()
+{
+   ll q;
+   ip(q);
+   while(q--)
+   {
+         ipn();
+         ll c=0;
+         
+         rep(i,n)
+         {
+              fo(j,i+1,n)
+              if(abs(arr[i]-arr[j])==1)
+              {
+                    c=1;
+                    break;
+              }
+              if(c==1)
+              break;
+         }
+         if(c==1)
+         pr1(2);
+         else
+         pr1(1);
+   }
+   return(0);
+}
