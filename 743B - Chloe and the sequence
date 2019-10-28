@@ -1,0 +1,29 @@
+#include<iostream>
+#include<math.h>
+#define ll long long int
+using namespace std;
+int main()
+ 
+{
+      ll n,k;
+      cin>>n>>k;
+      k--;
+      ll low=0;
+      ll high=pow(2,n)-1;
+      ll mid;
+      while(low<=high)
+      {
+            mid=low+(high-low)/2;
+            if(k>mid)
+            k=k-mid-1;
+            high=mid-1;
+            if(mid==k)
+            {
+                  cout<<n<<endl;
+                  break;
+            }
+            n--;
+      }
+      
+      return(0);
+}
