@@ -1,0 +1,31 @@
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+using namespace std;
+using  namespace std;
+int main()
+{
+          string str;
+          cin>>str;
+          ll n=(str.size())/2;
+         // cout<<str.size()<<endl;
+          ll arr[str.size()-n];
+          ll j=0;
+          for(int i=0;i<str.size();i++)
+          {
+                 if(str[i]!='+')
+                 {
+                           arr[j]=str[i]-'0';
+                           j++;
+                 }
+          }
+          sort(arr,arr+str.size()-n);
+          for(int i=0;i<str.size()-n;i++)
+          {
+                    cout<<arr[i];
+                    if(i!=str.size()-n-1)
+                    cout<<"+";
+          }
+          cout<<endl;
+          return(0);
+}
