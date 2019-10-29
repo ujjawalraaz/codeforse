@@ -1,0 +1,22 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main()
+{
+      int i,j;
+      int arr[5][5];
+      for(i=0;i<5;i++)
+      for(j=0;j<5;j++)
+      cin>>arr[i][j];
+      for(i=0;i<5;i++){
+      for(j=0;j<5;j++)
+      if(arr[i][j]==1)
+      break;
+      if(j!=5)
+      break;
+      }
+      int ans=fabs(2-i)+fabs(2-j);
+      cout<<ans<<endl;
+      return(0);
+}
