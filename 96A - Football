@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+using namespace std;
+ 
+ll max1(ll a,ll b)
+{
+          if(a>b)
+          return(a);
+          else
+          return(b);
+}
+ 
+int main()
+{
+          string str;
+          cin>>str;
+          //ll max=0;
+          ll zero=0,one=0;
+          char last;
+          if(str[0]=='0'){
+          zero++;
+          last='z';}
+          else{
+          one++;
+          last='o';}
+          ll m2=0;
+          for(int i=1;i<str.size();i++)
+          {
+                    if(str[i]==str[i-1])
+                    {
+                              if(last=='z')
+                              {
+                                        zero++;
+                                        one=0;
+                              }
+                              else
+                              {
+                                        one++;
+                                        zero=0;
+                              }
+                    }
+                    else
+                    {
+                              if(last=='z')
+                              {
+                                        one=1;
+                                        zero=0;
+                              }
+                              else
+                              {
+                                        zero=1;
+                                        one=0;
+                              }
+                    }
+                    if(str[i]=='0')
+                    last='z';
+                    else
+                    last='o';
+                    ll m1=max1(zero,one);
+                    m2=max1(m2,m1);
+          }
+          if(m2>=7)
+          cout<<"YES"<<endl;
+          else
+          cout<<"NO"<<endl;
+          return(0);
+}
