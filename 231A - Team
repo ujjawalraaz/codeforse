@@ -1,0 +1,19 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+      ll n;
+      cin>>n;
+      ll a,b,c;
+      ll count=0;
+      while(n--)
+      {
+            cin>>a>>b>>c;
+            ll sum=a+b+c;
+            if(sum>=2)
+            count++;
+      }
+      cout<<count<<endl;
+      return(0);
+}
