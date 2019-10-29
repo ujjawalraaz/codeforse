@@ -1,0 +1,16 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+      ll n,k,w;
+      cin>>k>>n>>w;
+      ll sum=(w)*(w+1);
+      sum=sum/2;
+      sum=sum*k;
+      if(n>=sum)
+      cout<<0<<endl;
+      else
+      cout<<sum-n<<endl;
+      return(0);
+}
