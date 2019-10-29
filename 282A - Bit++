@@ -1,0 +1,20 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+          ll n;
+          cin>>n;
+          string str;
+          ll sum=0;
+          while(n--)
+          {
+                    cin>>str;
+                    if(str[1]=='+')
+                    sum++;
+                    else
+                    sum--;
+          }
+          cout<<sum<<endl;
+          return(0);
+}
