@@ -1,0 +1,34 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+          string str;
+          cin>>str;
+          ll k=0;
+          for(int i=1;i<str.size();i++)
+          {
+                    if(str[i]>='a'&&str[i]<='z')
+                    {
+                              k=1;
+                              break;
+                    }
+          }
+          if(k==1)
+          cout<<str<<endl;
+          else
+          {
+                    int i=0;
+                    while(str[i])
+                    {
+                              char c=str[i];
+                              if(c>='a'&&c<='z')
+                              cout<<(char)toupper(c);
+                              else
+                              cout<<(char)tolower(c);
+                              i++;
+                    }
+                    cout<<endl;
+          }
+          return(0);
+}
