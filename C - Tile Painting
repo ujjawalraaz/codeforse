@@ -1,0 +1,52 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+bool checkprime(ll N) {
+        ll count = 0;
+        for(ll i = 1;i * i <=N;++i ) {
+             if( N % i == 0) {
+                 if( i * i == N )
+                         count++;
+                 else       // i < sqrt(N) and (N / i) > sqrt(N)
+                         count += 2;
+              }
+        }
+        if(count == 2)
+            return(true);
+        else
+            return(false);
+    }
+    
+ll gcd(ll a, ll b) 
+{ 
+    if (b == 0) 
+        return a; 
+    return gcd(b, a % b);  
+      
+} 
+   
+ 
+int main()
+{
+          ll n;
+          cin>>n;
+          if(checkprime(n))
+          cout<<n<<endl;
+          else
+          {
+                    ll gcd1=1;
+                    for(ll i=2;i*i<=n;i++)
+                    if(n%i==0)
+                    {
+                              gcd1=i;
+                              break;
+                    }
+                    for(ll i=2;i*i<=n;i++)
+                    if(n%i==0){
+                    gcd1=gcd(gcd1,i);
+                    gcd1=gcd(gcd1,n/i);
+                    }
+                    cout<<gcd1<<endl;
+          }
+          return(0);
+}
