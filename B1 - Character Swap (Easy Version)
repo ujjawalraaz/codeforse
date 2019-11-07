@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+#define ll long long int
+using namespace std;
+int main()
+{
+          ll k;
+          cin>>k;
+          while(k--)
+          {
+                    ll n;
+                    cin>>n;
+                    string str,str1;
+                    cin>>str>>str1;
+                    vector<vector<char>> v1(2);
+                    for(int i=0;i<n;i++)
+                    {
+                              if(str[i]!=str1[i])
+                              {
+                                     v1.at(0).push_back(str[i]);
+                                     v1.at(1).push_back(str1[i]);
+                              }
+                    }
+                    if(v1.at(0).size()==2)
+                    {
+                              if(v1.at(0).at(0)==v1.at(0).at(1)&&v1.at(1).at(0)==v1.at(1).at(1))
+                              cout<<"Yes"<<endl;
+                              else
+                              cout<<"No"<<endl;
+                    }
+                    else
+                    cout<<"No"<<endl;
+          }
+          return(0);
+}
