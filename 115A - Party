@@ -1,0 +1,29 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n;
+    cin>>n;
+    ll arr[n+1];
+    for(int i=1;i<=n;i++)
+    {
+        ll m;
+        cin>>m;
+        arr[i]=m;
+    }
+    ll m1=0;
+    for(int i=1;i<=n;i++)
+    {
+        ll j=i;
+        ll count=0;
+        while(arr[j]!=-1)
+        {
+            j=arr[j];
+            count++;
+        }
+        m1=max(m1,count);
+    }
+    cout<<m1+1<<endl;
+    return(0);
+}
