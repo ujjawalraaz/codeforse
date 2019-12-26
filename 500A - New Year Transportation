@@ -1,0 +1,39 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n,t;
+    cin>>n>>t;
+    vector<vector<ll>> v1(n+1);
+    for(int i=1;i<n;i++)
+    {
+        ll m;
+        cin>>m;
+        v1[i].push_back(i+m);
+    }
+   /* for(int i=0;i<=n;i++)
+    {
+        for(int j=0;j<v1[i].size();j++)
+        cout<<v1[i].at(j)<<" ";
+        cout<<endl;
+    }*/
+    queue<ll> q1;
+    q1.push(1);
+    ll vis[n+1]={-1};
+    while(!q1.empty())
+    {
+        ll q=q1.front();
+        q1.pop();
+        for(int i=0;i<v1[q].size();i++)
+        q1.push(v1[q].at(i));
+        vis[q]=1;
+    }
+    if(vis[t]==1)
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
+    return(0);
+}
