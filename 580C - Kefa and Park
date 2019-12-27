@@ -1,0 +1,49 @@
+#include<iostream>
+#include<vector>
+#define ll long long int
+using namespace std;
+int count=0;
+int m,n;
+vector<int> v1[100001];
+int arr[100001];
+void dfs(int n1,int y,int par)
+{
+    if(arr[n1]==0)
+    y=0;
+    else
+    {
+        if(y<m)
+        y++;
+        else
+        return;
+    }
+    int k=0;
+    for(int i=0;i<v1[n1].size();i++){
+    if(v1[n1].at(i)!=par){
+    dfs(v1[n1].at(i),y,n1);
+    k=1;}
+    }
+    if(k==0&&n1!=1)
+    count++;
+    return;
+}
+int main()
+{
+    cin>>n>>m;
+    //int arr[n+1];
+    for(int i=1;i<=n;i++)
+    cin>>arr[i];
+  //  vector<vector<ll>> v1(n+1);
+    for(int i=0;i<n-1;i++)
+    {
+        int x,y;
+        cin>>x>>y;
+        v1[x].push_back(y);
+        v1[y].push_back(x);
+    }
+    int y=0;
+    dfs(1,y,0);
+    cout<<count<<endl;
+    int p=0;
+    return(0);
+}
