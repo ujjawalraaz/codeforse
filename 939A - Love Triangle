@@ -1,0 +1,62 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+ll n;
+ll k;
+bool istringle(ll res[])
+{
+    ll count=0;
+    for(int i=1;i<=n;i++)
+    if(res[i]==1)
+    count++;
+    if(count==3)
+    return(true);
+    else
+    return(false);
+}
+bool iscycle(ll n,ll arr[],ll vis[],ll res[],ll arr1[],ll j)
+{
+    if(vis[n]==-1)
+    {
+        arr1[n]=j;
+        j++;
+        vis[n]=1;
+        res[n]=1;
+        if(vis[arr[n]]==-1&&iscycle(arr[n],arr,vis,res,arr1,j))
+        return(true);
+        else
+        if(res[arr[n]]==1){
+        ll c=j-arr1[arr[n]];
+        if(c==3)
+        k=1;
+        return(true);
+        }
+    }
+              res[n]=-1;
+    return(false);
+}
+int main()
+{
+    cin>>n;
+    ll arr[n+1],vis[n+1],res[n+1];
+    for(int i=1;i<=n;i++)
+    cin>>arr[i];
+   ll arr1[n+1]={0};
+    for(int i=1;i<=n;i++)
+    {
+    for(int i=0;i<=n;i++)
+    {
+        vis[i]=-1;
+        res[i]=-1;
+    }
+    ll j=1;
+    k=0;
+        if(iscycle(i,arr,vis,res,arr1,j)&&k==1)
+        {
+            cout<<"YES"<<endl;
+            return(0);
+        }
+    }
+    cout<<"NO"<<endl;
+    return(0);
+}
