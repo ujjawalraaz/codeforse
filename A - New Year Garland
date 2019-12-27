@@ -1,0 +1,21 @@
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll arr[3];
+        cin>>arr[0]>>arr[1]>>arr[2];
+        sort(arr,arr+3);
+        ll n=arr[2];
+        if(arr[0]+arr[1]+1>=arr[2])
+        cout<<"Yes"<<endl;
+        else
+        cout<<"No"<<endl;
+    }
+    return(0);
+}
