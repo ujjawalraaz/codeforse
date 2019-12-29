@@ -1,0 +1,25 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,k;
+        cin>>n>>k;
+        ll a=n/k;
+        ll b=n%k;
+        ll res=k*a;
+        if(b!=0)
+        {
+                  if(b>k/2)
+                  res=res+k/2;
+                  else
+                  res=res+b;
+        }
+        cout<<res<<endl;
+    }
+    return(0);
+}
