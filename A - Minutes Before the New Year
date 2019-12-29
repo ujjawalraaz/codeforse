@@ -1,0 +1,19 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll h,m;
+        cin>>h>>m;
+        ll sum=23-h;
+        sum=sum*60;
+        ll s1=60-m;
+        sum=sum+s1;
+        cout<<sum<<endl;
+    }
+    return(0);
+}
