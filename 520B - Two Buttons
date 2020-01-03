@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int count=0;
+    while(n<m)
+    {
+        if(m%2==0)
+        m=m/2;
+        else
+        m++;
+        count++;
+    }
+    cout<<count+(n-m)<<endl;
+    return(0);
+}
