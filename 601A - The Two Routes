@@ -1,0 +1,74 @@
+#include<iostream>
+#include<queue>
+#define ll long long int
+using namespace std;
+ll arr[405][405];
+void dijkstra(ll n,ll dist[],ll visited[],ll value)
+{
+    for(int i=0;i<=n;i++)
+    {
+        dist[i]=1e16;
+        visited[i]=0;
+    }
+    dist[1]=0;
+    deque<ll> q;
+    q.push_front(1);
+    visited[1]=1;
+    while(!q.empty())
+    {
+        ll t=q.front();
+        q.pop_front();
+        for(int i=1;i<=n;i++)
+        {
+            if(arr[t][i]==value){
+            if(dist[t]+1<dist[i]){
+            dist[i]=dist[t]+1;
+            if(visited[i]==0)
+            q.push_front(i);
+            else
+            q.push_back(i);
+            visited[i]=1;}}
+        }
+    }
+    
+}
+ 
+int main()
+{
+    ll n,m;
+    cin>>n>>m;
+    ll a,b;
+    for(int i=0;i<=n;i++)
+    for(int j=0;j<=n;j++)
+    arr[i][j]=0;
+    for(int i=0;i<m;i++)
+    {
+        cin>>a>>b;
+        arr[a][b]=1;
+        arr[b][a]=1;
+    }
+    ll dist[n+1];
+    ll visited[n+1];
+    dijkstra(n,dist,visited,1);
+    ll count,count1;
+    if(dist[n]<1e16)
+    count=dist[n];
+    else
+    {
+        cout<<-1<<endl;
+        return(0);
+    }
+    dijkstra(n,dist,visited,0);
+    if(dist[n]<1e16)
+    count1=dist[n];
+    else
+    {
+        cout<<-1<<endl;
+        return(0);
+    }
+    if(count<count1)
+    cout<<count1<<endl;
+    else
+    cout<<count<<endl;
+    return(0);
+}
