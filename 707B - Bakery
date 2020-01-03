@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#define ll long long int
+using namespace std;
+vector<vector<pair<ll,ll>>> v1;
+vector<ll> arr;
+vector<bool> visited;
+int main()
+{
+    ll n,m,k;
+    cin>>n>>m>>k;
+    v1.resize(n+5);
+    arr.resize(n+5);
+    visited.resize(n+5);
+    for(int i=0;i<m;i++)
+    {
+        ll u,v,l;
+        cin>>u>>v>>l;
+        v1[u].push_back(make_pair(v,l));
+        v1[v].push_back(make_pair(u,l));
+    }
+    if(k!=0)
+    {
+        for(int i=1;i<=k;i++){
+        cin>>arr[i];
+        visited[arr[i]]=true;}
+    }
+    
+    ll minimum=1e16;
+    for(int i=1;i<=k;i++)
+    {
+        ll t=arr[i];
+            for(int j=0;j<v1[t].size();j++)
+            {
+                ll a=v1[t][j].first;
+                ll b=v1[t][j].second;
+                if(visited[a]==false&&minimum>b)
+                minimum=b;
+            }
+    }
+    if(minimum==1e16)
+    cout<<-1<<endl;
+    else
+    cout<<minimum<<endl;
+    return(0);
+}
