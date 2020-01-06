@@ -1,0 +1,45 @@
+#include<iostream>
+#include<unordered_map>
+#include<deque>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n;
+    cin>>n;
+    unordered_map<ll,ll> umap;
+    ll m;
+    cin>>m;
+    umap[m]=1;
+    deque<ll> dq;
+    dq.push_back(m);
+    for(int i=1;i<n;i++)
+    {
+        cin>>m;
+        umap[m]=1;
+    }
+    while(dq.size()!=n)
+    {
+        ll x=dq.front();
+        if(umap.find(x*3)!=umap.end())
+        dq.push_front(x*3);
+        else
+        {
+            if(x%2==0&&umap.find(x/2)!=umap.end())
+            dq.push_front(x/2);
+        }
+        ll y=dq.back();
+        if(umap.find(y*2)!=umap.end())
+        dq.push_back(y*2);
+        else
+        {
+            if(y%3==0&&umap.find(y/3)!=umap.end())
+            dq.push_back(y/3);
+        }
+    }
+    deque<ll>::iterator it;
+    for(it=dq.begin();it!=dq.end();++it)
+    cout<<*it<<" ";
+    cout<<endl;
+    return(0);
+}
