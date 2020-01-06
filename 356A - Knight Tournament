@@ -1,0 +1,44 @@
+#include<iostream>
+#include<vector>
+#include<set>
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n,m;
+    cin>>n>>m;
+    ll l,r,x;
+    set<ll> alive;
+    vector<ll> ans(n+1);
+    for(int i=1;i<=n;i++){
+    alive.insert(i);
+    ans[i]=0;
+    }
+    vector<ll> toearse;    
+    for(int i=0;i<m;i++)
+    {
+        cin>>l>>r>>x;
+        set<ll>::iterator it;
+        it=alive.lower_bound(l);
+ 
+        while(it!=alive.end())
+        {
+            ll cur=*it;
+            if(cur>r)
+            break;
+            if(cur!=x)
+            {
+                ans[cur]=x;
+                toearse.push_back(cur);
+            }
+            ++it;
+        }
+        for(int j=0;j<toearse.size();j++)
+        alive.erase(toearse[j]);
+        toearse.clear();
+    }
+    for(int i=1;i<=n;i++)
+    cout<<ans[i]<<" ";
+    cout<<endl;
+    return(0);
+}
