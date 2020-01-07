@@ -1,0 +1,62 @@
+#include<iostream>
+#include<vector>
+#define ll long long int
+using namespace std;
+ll parent[26];
+ll rnk[26];
+ 
+ll findParent(ll a)
+{
+    if(parent[a]==a)
+    return(a);
+    else
+    {
+        parent[a]=findParent(parent[a]);
+        return(parent[a]);
+    }
+}
+ 
+void union1(ll a,ll b)
+{
+    ll pa=findParent(a);
+    ll pb=findParent(b);
+    if(rnk[pa]>rnk[pb])
+    parent[pb]=pa;
+    else
+    {
+        parent[pa]=pb;
+        if(rnk[pa]==rnk[pb])
+        rnk[pb]=rnk[pb]+1;
+    }
+}
+ 
+int main()
+{
+    ll n;
+    cin>>n;
+    string str1,str2;
+    cin>>str1>>str2;
+    for(int i=0;i<26;i++){
+    parent[i]=i;
+    rnk[i]=0;
+    }
+    ll count=0;
+    vector<pair<char,char>> v1;
+    for(int i=0;i<n;i++)
+    {
+        ll a=findParent(str1[i]-'a');
+        ll b=findParent(str2[i]-'a');
+        if(a==b)
+        continue;
+        else
+        {
+            union1((str1[i]-'a'),(str2[i]-'a'));
+            count++;
+            v1.push_back(make_pair(str1[i],str2[i]));
+        }
+    }
+    cout<<count<<endl;
+    for(int i=0;i<v1.size();i++)
+    cout<<v1[i].first<<" "<<v1[i].second<<endl;
+    return(0);
+}
