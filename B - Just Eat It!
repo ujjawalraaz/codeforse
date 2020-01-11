@@ -1,0 +1,47 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+ll max(ll a,ll b)
+{
+          if(a>b)
+          return(a);
+          return(b);
+}
+int main()
+{
+          ll t;
+          cin>>t;
+          while(t--)
+          {
+                    ll n;
+                    cin>>n;
+                    ll arr[n];
+                    ll k=0;
+                    for(int i=0;i<n;i++)
+                    cin>>arr[i];
+                    ll sum=0,best=INT_MIN,sum1=0,index=0;
+                    int j;
+                    for(int i=0;i<n;i++)
+                    {
+                            //  sum1=sum1+arr[i];
+                              if(arr[i]>=sum+arr[i])
+                              {
+                                        index=i;
+                                        sum=arr[i];
+                              }
+                              else
+                              sum=sum+arr[i];
+                              if(sum>best)
+                              {
+                                        j=i;
+                                        best=sum;
+                              }
+                    }
+                    if(index==0&&j==n-1)
+                    cout<<"YES"<<endl;
+                    else
+                    cout<<"NO"<<endl;
+                    
+          }
+          return(0);
+}
