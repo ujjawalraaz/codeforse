@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define boost std::ios::sync_with_stdio(false);cin.tie(0);cout.tie(0)
+#define ll long long 
+#define S second
+#define F first
+#define FOR(i,a,b) for(i=(a) ; i<(b) ; i++)
+ 
+const ll mod = 1e15+37;
+ll MUL = 1009;
+ll h[600005];
+ 
+ll getHash(string s)
+{
+	ll i,ans=0,n=s.length(),tmp;
+	FOR(i,0,n)
+	{
+		tmp=(h[i]*(ll)s[i])%mod;
+		ans=(ans+tmp)%mod;
+	}
+	return ans;
+}
+ 
+int main() 
+{
+    boost;
+	int n,m,i,j,k;
+	h[0]=1;
+	FOR(i,1,600005)
+		h[i]=(h[i-1]*MUL)%mod;
+    cin>>n>>m;
+    unordered_set<ll> st;
+    string s,t; 
+    FOR(i,0,n)
+    {
+    	cin>>s;
+    	ll ha = getHash(s);
+    	st.insert(ha);
+    }
+    while(m--)
+    {
+    	cin>>s;
+    	ll ha = getHash(s);
+    	k=s.length();
+    	bool ok=0;
+    	FOR(i,0,k)
+    	{
+    		FOR(j,0,3)
+    		{
+    			char c = j+'a';
+    			if(s[i]==c)
+    				continue;
+    			ll nha=ha+(h[i]*(c-s[i]))%mod;
+    			while(nha<0) nha+=mod;
+    			while(nha>=mod) nha-=mod;
+    			if(st.find(nha)!=st.end()){
+    				ok=1; break;
+    			}
+    		}
+    		if(ok) 
+    			break;
+    	}
+    	if(ok) cout<<"YES\n";
+    	else cout<<"NO\n";
+    }	
+    return 0;
+}
