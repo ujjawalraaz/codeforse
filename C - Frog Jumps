@@ -1,0 +1,76 @@
+  
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 14/03/2020
+
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+int main()
+{
+	io;
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+		string str;
+		ip(str);
+		ll n=str.size();
+		ll f=0,l=0,m=0;
+		rep(i,n)
+		{
+            //f++;
+            if(str[i]=='R')
+            {
+            	f=i+1;
+            	break;
+            }
+		}
+        for(ll i=n-1;i>=0;i--)
+        {
+        	//l++;
+        	if(str[i]=='R')
+        	{
+        		l=n-i;
+        		break;
+        	}
+        }
+        //cout<<f<<" "<<l<<endl;
+        ll index=f-1;
+        fo(j,index+1,n)
+        {
+        	if(str[j]=='R')
+        	{
+        		m=max(m,j-index);
+        		index=j;
+        	}
+        }
+        //cout<<f<<" "<<m<<" "<<l<<endl;
+        f=max(f,m);
+        f=max(f,l);
+        if(f==0)
+        	pr1(n+1);
+        else
+        	pr1(f);
+	}
+	return(0);
+}
