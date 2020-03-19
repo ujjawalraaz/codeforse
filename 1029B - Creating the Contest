@@ -1,0 +1,50 @@
+
+//qs link:https://codeforces.com/problemset/problem/1029/B
+
+   
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 19/03/2020
+ 
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+ll k;
+void build()
+{
+    
+}
+
+int main()
+{
+   ipn();
+   ll count=1;
+   ll temp=2*arr[0];
+   ll m1=1;
+   for(ll i=1;i<n;i++)
+   {
+    if(arr[i]<=temp)
+      count++;
+    else
+      count=1;
+    temp=arr[i]*2;
+    m1=max(m1,count);
+   }
+   cout<<m1<<endl;
+   return(0);
+}
