@@ -1,0 +1,107 @@
+
+
+//qs link:https://codeforces.com/problemset/problem/489/C
+
+   
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 23/03/2020
+ 
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+
+int main()
+{
+  ll m,s;
+  ip(m);ip(s);
+  if(m==1&&s==0)
+  {
+    cout<<0<<" "<<0<<endl;
+    return(0);
+  }
+  int max1[m];
+  int min1[m];
+  for(int i=0;i<m;i++)
+  {
+    min1[i]=0;
+    max1[i]=9;
+  }
+  min1[0]=1;
+ // min1[m-1]=1;
+  ll sum1=9*m;
+  for(int i=m-1;i>=0;i--)
+  {
+    if(sum1>s)
+    {
+      ll r;
+      if(sum1-s>=9)
+        r=9;
+      else
+        r=sum1-s;
+      if(i==0&&r==9)
+      r=8;
+      max1[i]=max1[i]-r;
+      sum1=sum1-r;
+    }
+    else
+      break;
+  }
+  ll sum2=1;
+  for(int i=m-1;i>=0;i--)
+  {
+    if(sum2<s)
+    {
+      ll r1;
+      if(s-sum2>=9)
+        r1=9;
+      else
+        r1=s-sum2;
+     // if(i==m-1)
+       // r1=r1-1;
+      min1[i]=min1[i]+r1;
+      sum2=sum2+r1;
+    }
+    else
+      break;
+  }
+  sum1=0;
+  sum2=0;
+  for(ll i=0;i<m;i++)
+  {
+    sum1=sum1+min1[i];
+    sum2=sum2+max1[i];
+  }
+ // cout<<sum1<<" "<<sum2<<endl;
+  if(sum1!=s||sum2!=s)
+    cout<<-1<<" "<<-1<<endl;
+  else
+  {
+    for(int i=0;i<m;i++)
+      cout<<min1[i];
+    cout<<" ";
+    for(int i=0;i<m;i++)
+      cout<<max1[i];
+    cout<<endl;
+  }
+  return(0);
+}
