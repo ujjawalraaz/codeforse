@@ -1,0 +1,56 @@
+   
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 23/03/2020
+ 
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+
+int main()
+{
+  io;
+  string str;
+  ip(str);
+  ll count=0;
+  ll n=str.size();
+  for(ll i=0;i<n;i++)
+    if(str[i]=='4'||str[i]=='7')
+      count++;
+  if(count==0)
+  {
+    cout<<"NO"<<endl;
+    return(0);
+  }
+  while(count)
+  {
+    ll r=count%10;
+    count=count/10;
+    if(r!=4&&r!=7)
+    {
+      cout<<"NO"<<endl;
+      return(0);
+    }
+  }
+  cout<<"YES"<<endl;
+  return(0);
+}
