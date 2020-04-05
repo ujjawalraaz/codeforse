@@ -1,0 +1,83 @@
+//qs link:https://codeforces.com/contest/1330/problem/B
+
+   
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 23/03/2020
+ 
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+int main()
+{
+  ll t;
+  ip(t);
+  while(t--)
+  {
+    ipn();
+    ll pre[n]={0};
+    ll pos[n]={0};
+    ll m1=arr[0];
+    unordered_map<ll,ll> umap;
+    for(ll i=0;i<n;i++)
+    {
+      if(umap.find(arr[i])!=umap.end())
+         break;
+      else
+        umap[arr[i]]=1;
+      m1=max(m1,arr[i]);
+      if(m1==i+1)
+        pre[i]=1;
+      else
+        pre[i]=0;
+    }
+    m1=arr[n-1];
+    umap.clear();
+    for(ll i=n-1;i>=0;i--)
+    {
+      if(umap.find(arr[i])!=umap.end())
+         break;
+      else
+        umap[arr[i]]=1;
+      m1=max(m1,arr[i]);
+      if(m1==n-i)
+        pos[i]=1;
+      else
+        pos[i]=0;
+    }
+    ll count=0;
+    vector<pair<ll,ll>> v1;
+    for(ll i=0;i<n-1;i++)
+      if(pre[i]==pos[i+1]&&pre[i]==1){
+        count++;
+        pair<ll,ll> p2;
+        p2.first=i+1;
+        p2.second=n-(i+1);
+        v1.push_back(p2);
+      }
+    cout<<count<<endl;
+    for(ll i=0;i<count;i++)
+      cout<<v1[i].first<<" "<<v1[i].second<<endl;
+    v1.clear();
+  }
+  return(0);
+}
