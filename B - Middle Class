@@ -1,0 +1,71 @@
+
+
+//qs link:https://codeforces.com/contest/1334/problem/B
+
+   
+ 
+/****************************************************
+             code from scratch...
+      created by ujjawal_singh on dated 07/04/2020
+ 
+              
+***************************************************** */
+  
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
+#define ll long long int
+#define ip(n) cin>>n;
+#define ipn() ll n;ip(n);ll arr[n];for(int i=0;i<n;i++)ip(arr[i])
+#define fo(i, a, b) for (int i = (a); i < int(b); i++)
+#define rfo(i, a, b) for (int i = (a); i > int(b); i--)
+#define rep(i, n) fo(i, 0, n)
+#define rrep(i, n) rfo(i, n-1, 0) 
+#define pr1(n) cout<<n<<endl
+#define pr2(a,b) cout<<a<<" "<<b<<endl
+#define io() ios_base::sync_with_stdio(false), cin.tie(NULL)
+using namespace std;
+void build()
+{
+    
+}
+int main()
+{
+  io();
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+    ll n,x;
+    cin>>n>>x;
+    ll arr[n];
+    for(ll i=0;i<n;i++)
+      cin>>arr[i];
+    sort(arr,arr+n);
+    ll sum=0;
+    ll count=0;
+    ll i;
+    for(i=n-1;i>=0;i--)
+    {
+      if(arr[i]>=x)
+      {
+       // sum=sum+(arr[i]-x);
+        count++;
+        //arr[i]=-1;
+        sum=sum+arr[i];
+      }
+      else
+        break;
+    }
+    for(;i>=0;i--)
+    {
+       sum=sum+arr[i];
+       if(sum/(count+1)>=x)
+        count++;
+       else
+        break;
+    }
+    cout<<count<<endl;
+  }
+  return(0);
+}
